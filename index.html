@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Flex box Document</title>
+ </head>
+ <body>
+
+<script src="vue.js" defer></script>
+<script src="demo.js" defer></script>
+<link rel="stylesheet" href="main.css"></link>
+
+<ol>
+	<li>各种标签</li>
+	<li>display 属性</li>
+	<li>width min max basis</li>
+	<li>shrink basis grow 计算</li>
+	<li>display: none; float absolute</li>
+	<li></li>
+	<li>Wrapped?</li>
+	<li></li>
+	<li>white space</li>
+	<li></li>
+	<li>margin</li>
+</ol>
+
+<h1>1</h1>
+<section id="tags">
+	<div class="flex" style="white-space: pre;">
+		<div class="block item">DIV1</div>
+		<div class="block item">DIV2</div>
+		一些没有父元(\n)
+		素的文字
+		<div class="block item">DIV3</div>
+		一些没有父元素的文字
+		<span class="text item">我在span标签里面</span>    
+		<span class="text item">我也在span标签里面</span>
+		<div class="block item">DIV4</div>
+	</div>
+</section>
+
+<h1>2</h1>
+<section id="display">
+	<div class="flex">
+		<div class="block item" :style=" {'display': proplist[0]}">
+			<select v-model="proplist[0]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</div>
+		<div class="block item" :style=" {'display': proplist[1]}">
+			<select v-model="proplist[1]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</div>
+		<div class="block item" :style=" {'display': proplist[2], position:'absolute', bottom: '50%'}">[absolute]
+			<select v-model="proplist[2]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</div>
+		<span class="text item" :style=" {'display': proplist[3], float: 'right'}">[Float]
+			<select v-model="proplist[3]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</span>
+		<span class="text item" :style=" {'display': proplist[4], visibility: 'hidden'}">[hidden]
+			<select v-model="proplist[4]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</span>
+		<div class="block item" :style=" {'display': proplist[5]}">
+			<select v-model="proplist[5]">
+				<option v-for="v in allowedValue" v-model="v">{{v}}
+			</select>
+		</div>
+	</div>
+</section>
+
+<h1>3</h1>
+<section id="width" @mousemove="updateData">
+	<div class="flex" style="width: 800px;">
+		<div class="block item" :style="propslist[0]">0)))))))))</div>
+		<div class="block item" :style="propslist[1]">1!!!!!!!!!</div>
+		<div class="block item" :style="propslist[2]">2@@@@@@@@@</div>
+	</div>
+	{{propslist[0]}}<br>
+	{{eminw}}
+	{{minw}}
+	<table class="control-table">
+	<tr>
+		<td v-for="i in indexs">
+			<p>minw
+				<input type="checkbox" v-model="eminw[i]">
+				<input type="range" v-model="minw[i]" min="0" max="800">{{minw[i]}}px
+			</p>
+			<p>maxw
+				<input type="checkbox" v-model="emaxw[i]">
+				<input type="range" v-model="maxw[i]" min="0" max="800">{{maxw[i]}}px
+			</p>
+			<p>width
+				<input type="checkbox" v-model="ewidth[i]">
+				<input type="range" v-model="width[i]" min="0" max="800">{{width[i]}}px
+			</p>
+			<p>grow
+				<input type="checkbox" v-model="egrow[i]">
+				<input type="range" v-model="grow[i]" min="0" max="5">{{grow[i]}}
+			</p>
+			<p>shrink
+				<input type="checkbox" v-model="eshrink[i]">
+				<input type="range" v-model="shrink[i]" min="0" max="5">{{shrink[i]}}
+			</p>
+			<p>basis
+				<input type="checkbox" v-model="ebasis[i]">
+				<input type="range" v-model="basis[i]" min="0" max="800">{{basis[i]}}px
+			</p>
+		</td>
+	</tr>
+	</table>
+</section>
+
+ </body>
+</html>

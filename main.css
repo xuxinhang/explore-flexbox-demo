@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+
+.flex {
+	display: flex;
+	width: 100%;
+	outline: #cc99ff 1px solid;
+	outline-offset: -1px;
+}
+	.flex .item {
+		outline: solid red 1px;
+		padding: 3px;
+		margin: 3px;
+	}
+	.flex div.item {
+		background: tan; 
+	}
+	.flex span.item {
+		background: #99cccc; 
+	}
+
+
+.display .item {
+	flex: auto;
+}
+
+
+
+
+.control-table {
+	width: 100%;
+}
+	.control-table td {
+		width: 33.33%;
+	}
+
+
